@@ -1,5 +1,4 @@
 from fastapi import FastAPI
-from databases import engine, meta
 
 
 def create_app() -> FastAPI:
@@ -9,6 +8,10 @@ def create_app() -> FastAPI:
         version="0.1",
     )
     return app
+
+
+# FastAPI instance
+app = create_app()
 
 
 @app.get("/")
