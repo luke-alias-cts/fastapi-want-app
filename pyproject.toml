@@ -8,5 +8,10 @@ dependencies = [
     "alembic>=1.15.1",
     "asyncpg>=0.30.0",
     "fastapi[standard]>=0.115.11",
+    "greenlet>=3.1.1",
+    "httpx>=0.28.1",
+    "pytest>=8.3.5",
+    "pytest-asyncio>=0.25.3",
+    "python-dotenv>=1.0.1",
     "sqlalchemy>=2.0.38",
 ]

@@ -1,8 +1,9 @@
 from sqlalchemy import MetaData
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession, async_sessionmaker
+from app.config import settings
 
 meta = MetaData()
-DATABASE_URL = "postgresql+asyncpg://user:password@localhost:5432/wanted"
+DATABASE_URL = settings.SQLALCHEMY_DATABASE_URI
 
 engine = create_async_engine(DATABASE_URL, echo=True)
 
