@@ -14,22 +14,22 @@ def init_app(init_db=True):
             yield
             if sessionmanager._engine is not None:
                 await sessionmanager.close()
+    else:
+        return None
 
 
 # FastAPI instance
-app = FastAPI(
-    title="Wanted FastAPI Project",
-    description="원티드 과제 CTSICTAI",
-    version="0.1",
-    lifespan=init_app(),
-)
+def create_app(init_db=True):
+    app = FastAPI(
+        title="Wanted FastAPI Project",
+        description="원티드 과제 CTSICTAI",
+        version="0.1",
+        lifespan=init_app(init_db),
+    )
+    # Include routers
+    app.include_router(companies.router)
+    app.include_router(tags.router)
+    return app
 
 
-@app.get("/")
-async def read_root():
-    return {"Hello": "World"}
-
-
-# 라우터 등록
-app.include_router(companies.router)
-app.include_router(tags.router)
+app = create_app()

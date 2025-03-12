@@ -11,9 +11,6 @@ class TagBase(BaseModel):
 class Tag(TagBase):
     id: int
 
-    class Config:
-        orm_mode = True
-
 
 class TagCreate(TagBase):
     pass
@@ -32,6 +29,3 @@ class CompanyCreate(CompanyBase):
 class Company(CompanyBase):
     id: int
     tags: List[Tag] = []
-
-    class Config:
-        orm_mode = True
