@@ -15,7 +15,7 @@ company_tag_association = Table(
 class Company(Base):
     __tablename__ = "companies"
 
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(Integer, primary_key=True, autoincrement=True, index=True)
     company_name_ko = Column(String, nullable=True)
     company_name_en = Column(String, nullable=True)
     company_name_ja = Column(String, nullable=True)
@@ -29,7 +29,7 @@ class Company(Base):
 class Tag(Base):
     __tablename__ = "tags"
 
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(Integer, primary_key=True, autoincrement=True, index=True)
     tag_name_ko = Column(String, unique=True, index=True, nullable=True)
     tag_name_en = Column(String, unique=True, index=True, nullable=True)
     tag_name_ja = Column(String, unique=True, index=True, nullable=True)

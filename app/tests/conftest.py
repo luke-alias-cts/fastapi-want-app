@@ -68,3 +68,13 @@ async def session_override(app, connection_test):
             yield session
 
     app.dependency_overrides[get_db] = get_db_override
+
+
+@pytest.fixture(scope="session")
+def test_connection_str(test_db):
+    pg_host = test_db.host
+    pg_port = test_db.port
+    pg_user = test_db.user
+    pg_db = test_db.dbname
+    pg_password = test_db.password
+    return f"postgresql+psycopg://{pg_user}:{pg_password}@{pg_host}:{pg_port}/{pg_db}"
