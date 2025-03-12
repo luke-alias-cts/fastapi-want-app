@@ -3,4 +3,7 @@ bin/
 __pycache__/
 lib/
 .env
-pyvenv.cfg
+pyvenv.
+pvvenv.cfg
+CACHEDIR.TAG
+.pytest_cache/
