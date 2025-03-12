@@ -22,7 +22,10 @@ class Company(Base):
 
     # 다대다 관계: 한 회사가 여러 태그를 가질 수 있음
     tags = relationship(
-        "Tag", secondary=company_tag_association, back_populates="companies"
+        "Tag",
+        secondary=company_tag_association,
+        back_populates="companies",
+        lazy="selectin",
     )
 
 
