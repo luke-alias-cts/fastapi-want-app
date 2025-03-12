@@ -29,9 +29,15 @@ DB_NAME=
 ```
 
 ### docker run
-`./docker.sh`실행
+1. `./docker.sh`실행
+```
+chmod +x docker.sh
+./docker.sh
+```
 <br> 단, local postgres가 있어야 가능!
 
+2. docker-compose 
+`docker compose up -d --build`
 
 
 
