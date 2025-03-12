@@ -1,14 +1,12 @@
 from sqlalchemy import Column, Integer, String, Table, ForeignKey
 from sqlalchemy.orm import relationship
-from app.databases import meta
-from sqlalchemy.orm import declarative_base
+from app.databases import Base
 
-Base = declarative_base(metadata=meta)
 
 # 회사와 태그 간 N:M 관계를 위한 association 테이블
 company_tag_association = Table(
     "company_tag_association",
-    meta,
+    Base.metadata,
     Column("company_id", Integer, ForeignKey("companies.id"), primary_key=True),
     Column("tag_id", Integer, ForeignKey("tags.id"), primary_key=True),
 )
