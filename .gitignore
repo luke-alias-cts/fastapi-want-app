@@ -2,7 +2,7 @@
 bin/
 __pycache__/
 lib/
-.env
+.env*
 pyvenv.
 pvvenv.cfg
 CACHEDIR.TAG

@@ -27,3 +27,11 @@ DB_HOST=
 DB_PORT=
 DB_NAME=
 ```
+
+### docker run
+`./docker.sh`실행
+<br> 단, local postgres가 있어야 가능!
+
+
+
+
