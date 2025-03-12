@@ -3,6 +3,8 @@ from fastapi import FastAPI
 from app.databases import sessionmanager
 from app.config import config
 from app.routers import companies, tags
+from fastapi_pagination import add_pagination
+from fastapi.middleware.cors import CORSMiddleware
 
 
 def init_app(init_db=True):
@@ -26,9 +28,22 @@ def create_app(init_db=True):
         version="0.1",
         lifespan=init_app(init_db),
     )
+    origins = [
+        "http://localhost",
+        "http://localhost:8000",
+    ]
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=origins,
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
     # Include routers
     app.include_router(companies.router)
     app.include_router(tags.router)
+    add_pagination(app)
+
     return app
 
 

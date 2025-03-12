@@ -2,7 +2,6 @@ from sqlalchemy import Column, Integer, String, Table, ForeignKey
 from sqlalchemy.orm import relationship
 from app.databases import Base
 
-
 # 회사와 태그 간 N:M 관계를 위한 association 테이블
 company_tag_association = Table(
     "company_tag_association",
